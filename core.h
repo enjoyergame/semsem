@@ -7,65 +7,64 @@
 #define MAP_HEIGHT 32
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
-
 #define MAX_ENEMIES 15
 #define MAX_PROJECTILES 20
 #define MAX_ITEMS 15
 #define MAX_RENDER_SPRITES 50
 
 // Режимы игры
-typedef enum { 
-    MODE_MENU, 
-    MODE_GAME_SOLO, 
-    MODE_GAME_COOP 
+typedef enum {
+    MODE_MENU,
+    MODE_GAME_SOLO,
+    MODE_GAME_COOP
 } GameMode;
 
 // Структура ввода
-typedef struct { 
-    bool w, s, a, d, space; 
-    bool up, down, left, right, enter; 
-    bool reset, k1, k2; 
+typedef struct {
+    bool w, s, a, d, space;
+    bool up, down, left, right, enter;
+    bool reset, k1, k2;
 } InputState;
 
-typedef struct { 
-    int wall_height; 
-    int hit_type; 
-    bool is_dark; 
-    float texture_x; 
+typedef struct {
+    int wall_height;
+    int hit_type;
+    bool is_dark;
+    float texture_x;
 } RenderColumn;
 
-typedef struct { 
-    float x; 
-    float y; 
-    int tex_id; 
-    float dist; 
+typedef struct {
+    float x;
+    float y;
+    int tex_id;
+    float dist;
 } RenderSprite;
 
-typedef struct { 
-    float x; 
-    float y; 
-    int type; 
-    int hp; 
-    float cooldown; 
-    bool alive; 
-    float rx; 
-    float ry; 
-    float roam_timer; 
+typedef struct {
+    float x;
+    float y;
+    int type;
+    int hp;
+    float cooldown;
+    bool alive;
+    float rx;
+    float ry;
+    float roam_timer;
 } Enemy;
 
-typedef struct { 
-    float x; 
-    float y; 
-    float vx; 
-    float vy; 
-    bool active; 
+typedef struct {
+    float x;
+    float y;
+    float vx;
+    float vy;
+    bool active;
 } Projectile;
 
-typedef struct { 
-    float x; 
-    float y; 
-    int type; 
-    bool active; 
+typedef struct {
+    float x;
+    float y;
+    int type;
+    bool active;
 } Item;
 
 // Структура одного игрока
@@ -91,9 +90,8 @@ typedef struct {
 // Главное состояние
 typedef struct {
     GameMode mode;
-    Player players[2]; 
-    RenderView views[2]; 
-    
+    Player players[2];
+    RenderView views[2];
     bool has_won;
     bool play_damage_sound; 
 
